@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriGear: Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="../AgriPic/default/AG.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+</head>
+
+<body>
+    <div id="scroll"></div>
+    <section id="header" >   
+        <div class="header-top">
+            <div class="nav-left">
+            <a href="index.html"><img src="../AgriPic/default/LogoAgriGear.png" alt="Home of AgriGear" title="Home of AgriGear"></a>
+            </div>
+                <div class="nav-right nav-account">             
+                   <li id="myAccountDropdown" class="dropdown">
+                        <a  href="#" role="button" id="myAccountDropdownMenu" class="active" aria-haspopup="true" aria-expanded="false">
+                            <span id="usernameDisplay" class="username">My Account</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="myAccountDropdownMenu">
+                            <a class="dropdown-item unauthenticated" id="signInOption" href="Sign.html">Sign In</a>
+                            <a class="dropdown-item authenticated" id="profileOption" href="Profile.html" style="display: none;"><i class="fa-solid fa-user"></i>Profile</a>
+                            <a class="dropdown-item authenticated" id="historyOption" href="History.html" style="display: none;"><i class="fa-solid fa-history"></i>Order History</a>
+                            <a class="dropdown-item authenticated" id="signOutOption" href="#"><i class="fa-solid fa-sign-out-alt"></i>Sign Out</a>
+                        </div>
+                    </li>
+                    <li id="signInLinkAnchor"><a href="Sign.html"><span>Sign In</span></a></li> 
+                </div>
+            </div>
+             <div id="mobile">
+                <i id="bar" class="fas fa-outdent"></i>
+            </div> 
+            <ul id="navbar">
+                <div class="header-bottom"> 
+                    <div class="nav-left">
+                        <li><a class="nav-link" href="index.html">Home</a></li>
+                        <li><a class="nav-link" href="About.html">About Us</a> </li>
+                        <li><a class="nav-link" href="Shop.html">Shop</a></li>
+                        <li><a class="nav-link" href="Contact.html">Contact Us</a></li>
+                        <li><a class="nav-link" href="Site.html">Site Map</a></li>
+                        <li><a class="nav-link" href="Settings.html">Preference</a></li>
+                    </div>
+                    <div class="nav-right">
+                        <li><a class="nav-link" href="Cart.html" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span id="cartCount"></span></a></li>          </div> 
+                    <a href="#" id="close"><i class="fa-solid fa-times"></i></a>   
+            
+                </ul> 
+            </div>
+    </section>
+
+    <section id="breadcrumbs" class="section-p1">
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <span class="separator">&raquo;</span>
+            <span>Profile</span> 
+        </div>
+    </section>
+
+    <section id="profile" class="section-p1">
+        <div class="profile-container">
+            <article class="profile-section">
+                <h2>My Account</h2>
+                <form id="userDetailsForm">
+                    <h3>General Information</h3>
+                    <p>You can edit and update your account information here:</p>
+                    <div class="column">
+                    <div class="form-row">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <div class="form-row">
+                        <label for="firstname">First Name:</label>
+                        <input type="text" id="firstname" name="firstname">
+                    </div>
+                    <div class="form-row">
+                        <label for="lastname">Last Name:</label>
+                        <input type="text" id="lastname" name="lastname">
+                    </div>
+                    <div class="form-row">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age">
+                    </div>
+                    <div class="form-row">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" class="gender">
+                            <option value="" disabled selected hidden>Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div> <div class="button-container">
+                        <button type="submit" class="save-btn"><span>Save Changes</span></button>
+                    </div>
+                    </div>
+                </form>
+            </article>
+    
+            <article class="profile-section">
+                <form id="updateAccountForm">
+                <h3>Change Password</h3>
+                <p> This will update your account's authentication information!
+                    (<span id="update-emailDisplay"></span>)</p>
+                <p>Type your email account used and password below to update your account:</p>
+                <div class="column">
+                    <div class="form-row">
+                        <label for="password-old">Old Password:</label>
+                        <input type="password" id="password-old" name="password-old">
+                    </div>
+                    <div class="form-row">
+                        <label for="password-update">New Password:</label>
+                        <input type="password" id="password-update" name="password-update">
+                    </div>
+                    <div class="form-row">
+                        <label for="update-confirmPassword">Confirm Password:</label>
+                        <input type="password" id="update-confirmPassword" name="update-confirmPassword">
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="update-btn"><span>Change Password</span></button>
+                    </div>
+                </div>
+                    </form>
+            </article>
+    
+            <article class="profile-section">
+                <form id="deleteAccountForm">
+                    <h3>Delete Account</h3>
+                        <p>This will delete your account (<span id="emailDisplay"></span>), all of your personal data. This cannot be undone!</p>
+                        <p>Type your account password below to delete your account:</p>
+                    <div class="column">
+                        <div class="form-row">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password">
+                        </div>
+                        <div class="form-row">
+                            <label for="confirmPassword">Confirm Password:</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword">
+                        </div>
+                        <div class="button-container">
+                            <button type="submit" class="delete-btn"><span>Delete Account</span></button>
+                        </div>
+                    </div>
+                </form>
+            </article>
+        </div>
+    </section>
+    
+    <section id="modal">
+        <div id="confirmDeleteModal" class="modal">
+            <!-- Warning Modal -->
+            <div class="modal-content warning">
+                <i class="fa fa-exclamation-circle"></i>
+                <div class="space-one" id="ModalMessage">
+                    
+                </div>
+                <div class="choices">
+                    <button class="confirm" ><span id="confirmDeleteBtn">Confirm</span></button>
+                    <button class="close cancel"><span  id="cancelDeleteBtn">Cancel</span></button> </button>                 
+                </div>
+            
+            </div>
+        </div>
+        <section id="modal">
+            <div id="successModal" class="modal">
+                 <div class="modal-content success">
+                     <i class="fa fa-check-circle"></i>
+                     <p id="successMessage"></p>
+                     <button type="button" class="close">OK</button>
+                 </div>
+             </div>
+             <div id="errorModal" class="modal">
+                 <div class="modal-content error">
+                     <i class="fa fa-times-circle"></i>
+                     <p id="errorMessage"></p>
+                     <button type="button" class="close">Try Again</button>
+                 </div>
+             </div>
+         </section>
+
+    <section id="scroll-floaters">
+        <div class="scroll-buttons">
+            <button id="scrollUpBtn" class="scroll-btn">▲</button>
+            <button id="scrollDownBtn" class="scroll-btn">▼</button>
+        </div>
+    </section>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="protanopia-filter">
+                <feColorMatrix type="matrix" values="0.567 0.433 0 0 0 0.558 0.442 0 0 0 0 0.242 0.758 0 0 0 0 0 1 0" />
+            </filter>
+            <filter id="tritanopia-filter">
+                <feColorMatrix type="matrix" values="1 0 0 0 0 0 0.95 0 0 0 0 0 0.082 0 0 0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <footer class="section-p1" id="footer">
+        <div class="col">
+        <a href="index.html"><img src="../AgriPic/default/LogoAgriGear.png" alt="Home of AgriGear" title="Home of AgriGear"></a>
+        <h4>Contact Us</h4>
+        <p><strong>Address: </strong>Silliman Avenue, Dumaguete City Philippines</p>
+        <p><strong>Phone: </strong>+63 912 2345 342/ +63 955 1850 136</p>
+        <p><strong>Email: </strong>agrigear4@gmail.com</p>
+        <p><strong>Hours: </strong>9:00 a.m. - 5:00 p.m.,Monday to Saturday</p>
+        </div>
+
+        <div class="col">
+            <h4>Know Us More</h4>
+            <a href="About.html" class="nav-link">About Us</a>
+            <a href="Contact.html#form-details" class="nav-link">Contact Us</a>
+            <a href="Faq.html" class="nav-link">Frequently Asked Questions</a>
+            <a href="Terms.html" class="nav-link">Terms & Conditions</a>
+            <a href="Data.html" class="nav-link">Website Data Policy</a>
+        </div>
+        <div class="col">
+            <h4>Follow Us</h4>
+            <a href="https://www.facebook.com/profile.php?id=61559642978119&mibextid=ZbWKwL"><i class="fab fa-facebook"></i>Facebook</a>
+            <a href="https://l.messenger.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fagrigear4%2F&h=AT2NQ9Tor38r-BLXu7WlzaYjwHMGY33Iqok2yTGMMEa3qNAJUvDoZe-zOSNVtblMLiEEMCF5TQ6w4XgzIfdfZqq8r-TPKvKRPMRE-n0FteWpq1oIAVUgcZWPVaLRYYF67xuZOQ"><i class="fab fa-instagram"></i>Instagram</a>
+            <a href="https://l.messenger.com/l.php?u=https%3A%2F%2Fyoutube.com%2F%40agrigear4%3Fsi%3DwiqZBGKd4VD51KR-&h=AT0hc_i5urYeHYWNCeL0ReJGM1G13kcJMxpHfDMlHWkGpuYdTVXcseTRIlp1oBh85TvFjNZSLCXXlVpM2afcpLERD_BtYlPMB0s5f-rWFSRky5IOwubN4Z_A9aTnlglK-It8Tw"><i class="fab fa-youtube"></i>Youtube</a>
+        </div>
+        <div class="col install">
+        </div>
+        <div class="copyright">
+            <p>©2024, AHT-AgriDito - AgriGear: Farm Tools and Equipment</p>
+        </div>
+    </footer>
+</body>
+<script type="module" src="/js/firebase/cart.js"></script>
+<script type="module" src="/js/firebase/home.js"></script>
+<script type="module" src="/js/firebase/profile.js"></script>
+<script src="/js/setting.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/script.js"></script>
+
+</html>

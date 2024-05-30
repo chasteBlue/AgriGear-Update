@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriGear: Sign In/ Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" href="../AgriPic/default/AG.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+</head>
+<body>
+    <section id="header" >   
+        <div class="header-top">
+            <div class="nav-left">
+                <a href="index.html"><img src="../AgriPic/default/LogoAgriGear.png" alt="Home of AgriGear" title="Home of AgriGear"></a>
+            </div>
+        </div>
+    </section>
+    <section id="sign">
+        <div class="container">
+            <div class="signin-signup"> 
+                <form class="sign-in-form" id="login_form" method="POST" action="#" encType="multipart/form-data">
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" id="login_email" name="login_email" placeholder="Email">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="login_password" id="login_password" placeholder="Password">
+                    </div>
+                    <button type="button" title="Signin" class="btn" id="login" name="login"><span>Sign In</span></button>
+                    <p class="account-text">Don't have an account? <a href="#" id="sign-up-btn2">Sign up</a></p>
+                </form>
+
+                <form class="sign-up-form" id="registration_form" method="POST" action="#" encType="multipart/form-data">
+                    <h2 class="title">Sign up</h2>
+                    <div class="form-content">
+                        <div class="form-container">
+                            <div class="input-field">
+                                <i class="fas fa-user"></i><span class="required">*</span>
+                                <input type="text" placeholder="First Name" id="firstname" name="firstname" required>
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-user"></i><span class="required">*</span>
+                                <input type="text" placeholder="Last Name"  id="lastname" name="lastname" required>
+                            </div>
+                        </div>
+
+                        <div class="form-container">
+                            <div class="input-field">
+                                <i class="fas fa-user"></i><span class="required">*</span>
+                                <input type="number" placeholder="Age" id="age" name="age" required>
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-user"></i><span class="required">*</span>
+                                <select title="gender" id="gender" name="gender" required>
+                                    <option value="" disabled selected hidden>Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="input-field">
+                        <i class="fas fa-user"></i><span class="required">*</span>
+                        <input type="text" placeholder="Username" id="username" name="username" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i><span class="required">*</span>
+                        <input type="text" placeholder="Email" id="email" name="email"required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i><span class="required">*</span>
+                        <input type="password" placeholder="Password"  id="password" name="password" required>
+                    </div>
+                    <button type="button" title="register" class="btn" id="register-btn" name="register"><span>Sign Up</span></button>
+
+                    <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p>
+                </form>
+            </div>
+            <div class="panels-container">
+                <div class="panel left-panel">
+                    <div class="content">
+                        <h3>Member of the Shop</h3>
+                        <p>Welcome back! Ready to reap the benefits? Sign in and stay connected to your agricultural journey.</p>
+                        <button type="button" class="btn"  id="sign-in-btn"><span>Sign In</span></button>
+                    </div>
+                <img src="../AgriPic/default/signin.svg" alt="Sign In" title="Sign In" class="image">
+            </div>
+
+                <div class="panel right-panel">
+                    <div class="content">
+                            <h3>New to the Shop?</h3>
+                            <p>Join our growing community of cultivators! Sign up now for exclusive offers and updates.</p>
+                            <button type="button" class="btn" id="sign-up-btn"><span>Sign Up</span></button>
+                        </div>
+                    <img src="../AgriPic/default/signup.svg" alt="Sign Up" title="Sign Up" class="image">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="modal">
+        <!-- Success Modal -->
+        <div id="successModal" class="modal">
+            <div class="modal-content success">
+                <i class="fa fa-check-circle"></i>
+                <p id="successMessage"></p>
+                <span id="usernameDisplay" class="username"></span>
+                <button type="button" class="close">OK</button>
+            </div>
+        </div>
+
+        <!-- Error Modal -->
+        <div id="errorModal" class="modal">
+            <div class="modal-content error">
+                <i class="fa fa-times-circle"></i>
+                <p id="errorMessage"></p>
+                <span id="errorSubMessage"></span>
+                <button type="button" class="close">OK</button>
+            </div>
+        </div>
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="protanopia-filter">
+                <feColorMatrix type="matrix" values="0.567 0.433 0 0 0 0.558 0.442 0 0 0 0 0.242 0.758 0 0 0 0 0 1 0" />
+            </filter>
+            <filter id="tritanopia-filter">
+                <feColorMatrix type="matrix" values="1 0 0 0 0 0 0.95 0 0 0 0 0 0.082 0 0 0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg> 
+
+</body>
+<script src="/js/main.js"></script>
+<script src="/js/setting.js"></script>
+<script type="module" src="/js/firebase/home.js"></script>
+<script type="module" src="/js/firebase/auth/sign.js"></script>
+</html>

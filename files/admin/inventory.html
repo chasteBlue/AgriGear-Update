@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriGear: Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <section id="header">
+        <div id="mobile">
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+        <a href="#"><img src="/AgriPic/logo/Logo5.png" alt="LogoDark"></a>
+        
+        <div>
+            <ul id="navbar">
+                <li><a href="Home.html">Home</a></li>
+                <li><a class="active" href="Shop.html">Shop</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+                <li id="lg-bag"><a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i>  Cart</a></li>
+                <li id="lg-bag"><a href="Profile.html"><i class="fa-solid fa-user"></i>  Profile</a></li>
+                <a href="#" id="close"><i class="fa-solid fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="Profile.html"><i class="fa-solid fa-user"></i></a>
+        </div>
+        
+    </section>
+
+    <section id="pro-details" class="section-p1">
+        <div class="single-pro-image">
+            <h3>Image Main</h3>
+            <br>
+                <input type="file" id="image1" accept="image/*">
+                <div id="imagePreview1"></div>
+            <br>
+            <div class="col">
+            <h3>Small Images</h3>
+                    <input type="file" id="image2" accept="image/*">
+                    <input type="file" id="image3" accept="image/*">
+                    <input type="file" id="image4" accept="image/*">
+                </div>
+                <div class="col">
+                    <div id="imagePreview2" style="width: 100px; height: 100px;"></div>
+                    <div id="imagePreview3" style="width: 100px; height: 100px;"></div>
+                    <div id="imagePreview4" style="width: 100px; height: 100px;"></div>
+                </div>
+
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="../AgriPic/products/1.jpg" width="100%" id="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="../AgriPic/products/2.jpg" width="100%" id="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="../AgriPic/products/3.jpg" width="100%" id="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="../AgriPic/products/4.jpg" width="100%" id="small-img" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="seller">
+            <div class="col">
+                <h3>Product Number</h3>
+                <input type="number" id="proNum" placeholder="Number">
+
+                <h3>SKU</h3>
+                <input type="text" id="sku" placeholder=" 3 Let & 3 Num">
+
+                <h3>Category</h3>
+                <input type="text" id="category">
+
+                <h3>Product Name</h3>
+                <input type="text" id="proName">
+            </div>
+            <div class="col">
+                <h3>Stock:</h3>
+                <select id="stock">
+                    <option value="onstock">On Stock</option>
+                    <option value="outStock">Out of Stock</option>
+                </select>
+
+                <h3>Quantity</h3>
+                <input type="number" id="quantity" placeholder="Number">
+
+                <h3>Price</h3>
+                <input type="number" id="price" placeholder="Number">
+
+                <h3>Product Description</h3>
+                <input type="text" id="proDetail">
+
+                <h3>Short Description</h3>
+                <input type="text" id="shortDetail">
+            </div>
+            </div>
+    </section>
+        
+    <section id="seller-button">
+        <div>
+            <button class="normal" id="add">Add</button>
+            <button class="normal" id="view">View</button>
+            <button class="normal" id="btnupdate">Update</button>
+            <button class="normal" id="btndelete">Delete</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+        <img src="/AgriPic/logo/Logo5.png" alt="LogoDark" class="logo">
+        <h4>Contact Us</h4>
+        <p><strong>Address: </strong>Silliman Avenue, Dumaguete City Philippines</p>
+        <p><strong>Phone: </strong>+63 912 2345 342/ +63 955 1850 136</p>
+        <p><strong>Hours: </strong>9:00 a.m. - 5:00 p.m.,Monday to Saturday</p>
+        <div class="follow">
+            <h4>Follow Us</h4>
+            <div class="icon">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About Us</h4>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Site Map</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">FAQ</a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">Profile</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col install">
+            <h4>Install Desktop Application</h4>
+            <p>From this link:</p>
+            <div class="row">
+                <img src="" alt="gdrive">
+            </div>
+            <div class="row">
+                <p>Payment Gateaways</p>
+                <img src="" alt="gcash">
+                <img src="" alt="cod">
+            </div>
+        </div>
+        <div class="copyright">
+            <p>©2024, AHT-AgriDito - AgriGear: Farm Tools and Equipment</p>
+        </div>
+    </footer>
+</body>
+<script src="/js/script.js"></script>
+<script type="module" src="/js/firebase/shop.js"></script>
+
+
+</html>

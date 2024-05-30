@@ -1,0 +1,323 @@
+
+body.dark-mode {
+    background-color: black;
+    color: white;
+    width:100%;
+}
+
+body.grayscale-mode {
+    filter: grayscale(100%);
+}
+
+.tritanopia-mode {
+    filter: url(#tritanopia-filter);
+}
+.protanopia-mode {
+    filter: url(#protanopia-filter);
+}
+
+body.dark-mode p {
+    color: #c2c2c2;
+}
+
+body.dark-mode #header, body.dark-mode #footer {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode .header-bottom {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode .header-top .nav-left a img{
+    filter: drop-shadow(0 0 1px #ffffff);
+}
+
+body.dark-mode #mobile i {
+    color: white;
+}
+
+body.dark-mode .nav-account li a, body.dark-mode #navbar li a{
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode #navbar li a:hover, 
+body.dark-mode #navbar li a.active {
+    color: #ff6d3c;
+}
+
+body.dark-mode #navbar li a:hover::after, 
+body.dark-mode #navbar li a.active::after, 
+body.dark-mode .nav-account li a:hover::after, 
+body.dark-mode .nav-account li a.active::after{
+    background: #01ffff;
+}
+
+body.dark-mode .nav-account li a:hover, body.dark-mode #navbar li a:hover{
+    color: #ff6d3c;
+    filter: brightness(1);
+}
+
+body.dark-mode #navbar i, body.dark-mode .nav-account i {
+    color: #01ffff;
+}
+
+body.dark-mode .nav-account #myAccountDropdown a span {
+    border: 1px solid #01ffff;
+    box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+}
+body.dark-mode .dropdown-menu{
+    background-color: #333;
+    border: 1px solid #01ffff;
+}
+
+/*Footer*/
+body.dark-mode footer a, body.dark-mode footer i,
+body.dark-mode footer p {
+    color: #c2c2c2;
+}
+
+body.dark-mode footer a:hover, body.dark-mode footer i:hover{
+    color: #01ffff;
+}
+
+
+/*About Us*/
+body.dark-mode #about h4 {
+    color: #fff;
+}
+
+body.dark-mode #about p {
+    color: #c2c2c2;
+}
+
+body.dark-mode #legal .faqf, body.dark-mode #legal .terms, body.dark-mode #legal .privacyf {
+    background-color: #222222;
+    color: #c2c2c2;
+}
+
+body.dark-mode #legal .faqf p, body.dark-mode #legal .terms p, body.dark-mode #legal .privacyf p {
+    color: #c2c2c2;
+}
+
+body.dark-mode  .about-legal h2{
+    color: #c2c2c2;
+}
+
+body.dark-mode #faq .panel p {
+    background-color: #222222;
+    color: #c2c2c2;
+}
+
+body.dark-mode #about .panel, body.dark-mode #faq .panel {
+    background-color: #222222;
+}
+
+/*Site Map*/
+body.dark-mode .product-links, body.dark-mode .product-link {
+    color: #01ffff;
+}
+
+body.dark-mode  #site h2 {
+    color: #c2c2c2;
+}
+
+/*Contact Us*/
+body.dark-mode  #contact-details h4,
+body.dark-mode  #contact-details .details h2, 
+body.dark-mode  #form-details form h2,
+body.dark-mode #form-details .people div p span,
+body.dark-mode #form-details .people div p {
+    color: #c2c2c2;
+}
+
+body.dark-mode #form-details {
+    background-color: #222222;
+}
+
+body.dark-mode #form-details form input, body.dark-mode #form-details form textarea {
+    background-color: #333;
+}
+
+/*Shop*/
+body.dark-mode #loading-screen {
+    background-color: #222222;
+}
+
+body.dark-mode #product .pro {
+    background-color: #333;
+    transition: 0.5s ease-in-out;
+}
+
+body.dark-mode #product .pro:hover {
+    box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+    
+}
+
+body.dark-mode #product .pro .des span {
+    color: #fff;
+}
+
+body.dark-mode #product .pro .des h5 {
+    color: #c2c2c2;
+}
+
+body.dark-mode #product .pro .des h4 {
+    color: #ff6d3c;
+    filter: brightness(1);
+}
+
+body.dark-mode #product .sidebar {
+    border: 1px solid #01ffff;
+    box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+    background-color: #222222;
+
+}
+
+body.dark-mode #product .searchbar input {
+    background-color: #222222;
+}
+
+/*Home**/
+
+body.dark-mode #hero h2 {
+    color: #01ffff;
+}
+
+body.dark-mode #hero p {
+    color: #222222;
+}
+
+body.dark-mode h2 {
+    color: #c2c2c2;
+}
+
+body.dark-mode #feature .fe-box {
+    background-color: #222222;
+}
+
+/*Shop Details**/
+body.dark-mode #pro-details .single-pro-details p,
+body.dark-mode #pro-details .single-pro-details h4 {
+    color: #01ffff;
+}
+
+/*Cart*/
+
+body.dark-mode #cart table {
+    background-color: #333;
+}
+
+body.dark-mode #subtotal {
+    background-color: #333;
+}
+
+body.dark-mode #subtotal h3 {
+    color: #01ffff;
+}
+
+/*Modal*/
+body.dark-mode #modal .modal-content {
+    color: #c2c2c2;
+    background-color: #222222;
+}
+
+body.dark-mode #modal p {
+    color: #c2c2c2;
+}
+
+/*Checkout*/
+
+body.dark-mode #checkout form {
+    color: #c2c2c2;
+    background-color: #222222;
+}
+
+body.dark-mode #checkout .column .title {
+    color: #ff6d3c;
+}
+
+body.dark-mode #checkout .column .subtitle {
+    color: #01ffff;
+}
+
+body.dark-mode #checkout .column .input-box input {
+    background-color: #222222;
+}
+body.dark-mode  #checkout {
+    background-color: transparent;
+}
+
+body.dark-mode #checkout .column .payment-personal .checkout-cod #codDetails p,
+body.dark-mode #checkout .column .payment-personal .checkout-cod #codDetails ul  {
+    color: #c2c2c2;
+}
+
+/*FAQ*/
+
+body.dark-mode #faq .form-details {
+    background-color: #222222;
+}
+
+body.dark-mode #faq .form-details form input, body.dark-mode #faq .form-details form textarea {
+    background-color: #333;
+}
+
+body.dark-mode #faq .form-details h4 {
+    color: #c2c2c2;
+}
+
+body.dark-mode #faq .accordion {
+    background-color: #333;
+    color: white;
+}
+
+/*Terms*/
+body.dark-mode  #terms .term-scroll {
+    background-color: #333;
+    color: #c2c2c2;
+}
+body.dark-mode  #terms strong{
+    color: white;
+}
+body.dark-mode  #terms p,body.dark-mode  #profile p{
+    color: #c2c2c2;
+}
+
+/*Profile*/
+body.dark-mode #profile .profile-container,
+body.dark-mode #profile .profile-section {
+    background-color: #333;
+    color: #c2c2c2;
+}
+
+body.dark-mode #history thead tr th, body.dark-mode #history tr {
+    background-color: #333;
+    color: #c2c2c2;
+}
+
+/*Sign*/
+body.dark-mode #sign {
+    background-color: black;
+}
+
+/*Settings*/
+body.dark-mode #settings label {
+    color: #333;
+}
+
+/*Data*/
+body.dark-mode #terms .preview-link,
+body.dark-mode #terms a {
+    color: #63aeff;
+    cursor: pointer;
+}
+
+
+
+
+
+
+

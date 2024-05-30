@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriGear: Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="../AgriPic/default/AG.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+
+    <!--Maps-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="scroll"></div>
+    <section id="header" >   
+        <div class="header-top">
+            <div class="nav-left">
+                <a href="index.html"><img src="../AgriPic/default/LogoAgriGear.png" alt="Home of AgriGear" title="Home of AgriGear"></a>
+            </div>
+                <div class="nav-right nav-account">             
+                   <li id="myAccountDropdown" class="dropdown">
+                        <a  href="#" role="button" id="myAccountDropdownMenu" aria-haspopup="true" aria-expanded="false">
+                            <span id="usernameDisplay" class="username">My Account</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="myAccountDropdownMenu">
+                            <a class="dropdown-item unauthenticated" id="signInOption" href="Sign.html">Sign In</a>
+                            <a class="dropdown-item authenticated" id="profileOption" href="Profile.html" style="display: none;"><i class="fa-solid fa-user"></i>Profile</a>
+                            <a class="dropdown-item authenticated" id="historyOption" href="History.html" style="display: none;"><i class="fa-solid fa-history"></i>Order History</a>
+                            <a class="dropdown-item authenticated" id="signOutOption" href="#"><i class="fa-solid fa-sign-out-alt"></i>Sign Out</a>
+                        </div>
+                    </li>
+                    <li id="signInLinkAnchor"><a href="Sign.html"><span>Sign In</span></a></li> 
+                </div>
+            </div>
+             <div id="mobile">
+                <i id="bar" class="fas fa-outdent"></i>
+            </div> 
+            <ul id="navbar">
+                <div class="header-bottom"> 
+                    <div class="nav-left">
+                        <li><a class="nav-link" href="index.html">Home</a></li>
+                        <li><a class="nav-link" href="About.html">About Us</a> </li>
+                        <li><a class="nav-link" href="Shop.html">Shop</a></li>
+                        <li><a class="nav-link active" href="Contact.html">Contact Us</a></li>
+                        <li><a class="nav-link" href="Site.html">Site Map</a></li>
+                        <li><a class="nav-link" href="Settings.html">Preference</a></li>
+                    </div>
+                    <div class="nav-right">
+                        <li><a class="nav-link active" href="Cart.html" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span id="cartCount"></span></a></li>          </div> 
+                    <a href="#" id="close"><i class="fa-solid fa-times"></i></a>   
+            
+                </ul> 
+            </div>
+    </section>
+    <section id="breadcrumbs" class="section-p1">
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <span class="separator">&raquo;</span>
+            <span>Contact Us</span> 
+        </div>
+    </section>
+    
+    <section id="contact-details" class="section-p1">
+       <div class="details">
+        <h2>Visit one of out store locations or contact us today</h2>
+            <div>
+                <li>
+                    <i class="fa fa-store"></i>
+                    <h4 id="name">AgriGear</h4>
+                </li>
+                <li>
+                    <i class="fa fa-map"></i>
+                    <p id="location">8864+MW3, Dumaguete, Negros Oriental</p>
+                </li>
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <p id="email">agrigearShop@gmail.com</p>
+                </li>
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <p id="phone">+6392 234 3454</p>
+                </li>
+                <li>
+                    <i class="fa fa-clock"></i>
+                    <p id="hours">"Mon-Fri: 9:00 a.m. to 7:00 p.m</p>
+                </li>
+            </div>
+       </div>
+       <div id="map"></div>
+    </section>
+
+    <section id="form-details">
+        <form id="messageForm" action="/submit_form" method="POST">
+            <h2>We love to hear from you</h2>
+            <input type="text" name="name" id="nameInput" placeholder="Your Name" required>
+            <input type="email" name="email" id="emailInput" placeholder="E-mail" required>
+            <input type="text" name="subject" id="subjectInput" placeholder="Subject" required>
+            <textarea name="message" id="messageInput" cols="20" rows="10" placeholder="Your Message" required></textarea>
+            <button type="submit" id="submitButton"><span>Submit</span></button>
+        </form>
+        
+        <div class="people">
+            <div>
+                <img src="../AgriPic/people/p1.png" alt="JJAmigo" title="JJ Amigo- Manager">
+                <p><span>JJ Amigo</span>Silliman University: BSIT <br> Phone: +6392 234 3453 <br> Email: jjpamigo@su.edu.ph</p>
+            </div>
+            <div>
+                <img src="../AgriPic/people/p2.png" alt="LeoHingpit" title="Leo Hingpit- Director">
+                <p><span>Leo Hingpit</span>Silliman University: BSIT <br> Phone: +6392 234 3453 <br> Email: leolhingpit@su.edu.ph</p>
+            </div>
+            <div>
+                <img src="../AgriPic/people/p3.png" alt="DynnhielTalisayan" title="Dynnhiel Talisayan- Business Partner">
+                <p><span>Dynnhiel Talisayan</span>Silliman University: BSIT <br> Phone: +6392 234 3453 <br> Email: dynnhielmtalisayan@su.edu.ph</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="modal">
+        <div id="successModal" class="modal">
+             <div class="modal-content success">
+                 <i class="fa fa-check-circle"></i>
+                 <p id="successMessage"></p>
+                 <button type="button" class="close">OK</button>
+             </div>
+         </div>
+         <div id="errorModal" class="modal">
+             <div class="modal-content error">
+                 <i class="fa fa-times-circle"></i>
+                 <p id="errorMessage"></p>
+                 <button type="button" class="close">Try Again</button>
+             </div>
+         </div>
+     </section>
+
+    <section id="scroll-floaters">
+        <div class="scroll-buttons">
+            <button id="scrollUpBtn" class="scroll-btn">▲</button>
+            <button id="scrollDownBtn" class="scroll-btn">▼</button>
+        </div>
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="protanopia-filter">
+                <feColorMatrix type="matrix" values="0.567 0.433 0 0 0 0.558 0.442 0 0 0 0 0.242 0.758 0 0 0 0 0 1 0" />
+            </filter>
+            <filter id="tritanopia-filter">
+                <feColorMatrix type="matrix" values="1 0 0 0 0 0 0.95 0 0 0 0 0 0.082 0 0 0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg> 
+
+    <footer class="section-p1" id="footer">
+        <div class="col">
+         <a href="index.html"><img src="../AgriPic/default/LogoAgriGear.png" alt="Home of AgriGear" title="Home of AgriGear"></a>
+        <h4>Contact Us</h4>
+        <p><strong>Address: </strong>Silliman Avenue, Dumaguete City Philippines</p>
+        <p><strong>Phone: </strong>+63 912 2345 342/ +63 955 1850 136</p>
+        <p><strong>Email: </strong>agrigear4@gmail.com</p>
+        <p><strong>Hours: </strong>9:00 a.m. - 5:00 p.m.,Monday to Saturday</p>
+        </div>
+
+        <div class="col">
+            <h4>Know Us More</h4>
+            <a href="About.html" class="nav-link">About Us</a>
+            <a href="Contact.html#form-details" class="nav-link">Contact Us</a>
+            <a href="Faq.html" class="nav-link">Frequently Asked Questions</a>
+            <a href="Terms.html" class="nav-link">Terms & Conditions</a>
+            <a href="Data.html" class="nav-link">Website Data Policy</a>
+        </div>
+        <div class="col">
+            <h4>Follow Us</h4>
+            <a href="https://www.facebook.com/profile.php?id=61559642978119&mibextid=ZbWKwL"><i class="fab fa-facebook"></i>Facebook</a>
+            <a href="https://l.messenger.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fagrigear4%2F&h=AT2NQ9Tor38r-BLXu7WlzaYjwHMGY33Iqok2yTGMMEa3qNAJUvDoZe-zOSNVtblMLiEEMCF5TQ6w4XgzIfdfZqq8r-TPKvKRPMRE-n0FteWpq1oIAVUgcZWPVaLRYYF67xuZOQ"><i class="fab fa-instagram"></i>Instagram</a>
+            <a href="https://l.messenger.com/l.php?u=https%3A%2F%2Fyoutube.com%2F%40agrigear4%3Fsi%3DwiqZBGKd4VD51KR-&h=AT0hc_i5urYeHYWNCeL0ReJGM1G13kcJMxpHfDMlHWkGpuYdTVXcseTRIlp1oBh85TvFjNZSLCXXlVpM2afcpLERD_BtYlPMB0s5f-rWFSRky5IOwubN4Z_A9aTnlglK-It8Tw"><i class="fab fa-youtube"></i>Youtube</a>
+        </div>
+        <div class="col install">
+        </div>
+        <div class="copyright">
+            <p>©2024, AHT-AgriDito - AgriGear: Farm Tools and Equipment</p>
+        </div>
+    </footer>
+</body>
+<script src="/js/setting.js"></script>
+<script type="module" src="/js/firebase/feedback.js"></script>
+<script type="module" src="/js/firebase/home.js"></script>
+<script type="module" src="/js/firebase/details.js"></script>
+<script>
+    const initialLocation = [9.311853318694629, 123.30728904355244]; // Silliman Ave., Dumaguete City
+    const secondLocation = [9.312098068462785, 123.30336284388231];    //NORSU
+    const thirdLocation = [9.317428679924543, 123.29574377249297];  //Ace Claytown
+    const forthLocation = [9.305365288697397, 123.29984478216684];  //Foundation University
+    
+    const initialZoom = 15;
+    const map = L.map('map').setView(initialLocation, initialZoom);    
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker(forthLocation).addTo(map)
+    .bindPopup('<b>AgriGear 4th Branch</b><br>8863+P9J, Capitol Area, Kagawasan Avenue,<br> Dumaguete, 6200 Negros Oriental')
+    .openPopup()
+    .on('click', function () {
+        displayMarkerInfo("AgriGear 4th Branch", "8863+P9J, Capitol Area, Kagawasan Avenue, Dumaguete, 6200 Negros Oriental", "agrigear4@gmail.com", "+6392 234 3454", "Mon-Wed: 9:00 a.m. to 7:00 p.m.");
+    });
+
+L.marker(thirdLocation).addTo(map)
+    .bindPopup('<b>AgriGear 3rd Branch</b><br>Claytown, Felomino Cimafranca ST, Diego De La Vina Rd, <br>Dumaguete, 6200 Negros Oriental')
+    .openPopup() 
+    .on('click', function () {
+        displayMarkerInfo("AgriGear 3rd Branch", "Felomino Cimafranca ST, Diego De La Vina Rd, Dumaguete, 6200 Negros Oriental", "agrigear4@gmail.com", "+6392 234 3454", "Mon-Wed: 9:00 a.m. to 7:00 p.m.");
+    });
+
+L.marker(secondLocation).addTo(map)
+    .bindPopup('<b>AgriGear 2nd Branch</b><br>Northpoint, Dumaguete City')
+    .openPopup()
+    .on('click', function () {
+        displayMarkerInfo("AgriGear 2nd Branch", "NORSU Main Campus,Northpoint, Dumaguete City", "agrigear4@gmail.com","+6392 234 3454", "Mon-Fri: 9:00 a.m. to 7:00 p.m.");
+    });
+    
+L.marker(initialLocation).addTo(map)
+    .bindPopup('<b>AgriGear</b><br>8864+MW3, Dumaguete, Negros Oriental')
+    .openPopup()
+    .on('click', function () {
+        displayMarkerInfo("AgriGear", "8864+MW3, Dumaguete, Negros Oriental", "agrigear4@gmail.com", "+6392 234 3454", "Mon-Fri: 9:00 a.m. to 7:00 p.m.");
+    });
+
+
+    function displayMarkerInfo(name, location, email, phone, hours) {
+    document.getElementById("name").innerText = name;
+    document.getElementById("location").innerText = "Location: " + location;
+    document.getElementById("phone").innerText = "Phone: " + phone;
+    document.getElementById("email").innerText = "Email: " + email;
+    document.getElementById("hours").innerText = "Business Hours: " + hours;
+    document.getElementById("marker-info").style.display = "block";
+}
+</script>
+<script src="/js/main.js"></script>
+
+</html>

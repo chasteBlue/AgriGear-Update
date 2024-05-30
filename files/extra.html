@@ -1,0 +1,1403 @@
+  <!--<div id="successModal" class="modal">
+            <div class="modal-content success">
+                <i class="fa fa-check-circle"></i>
+                <p>Sign out successfully!</p>
+                <button type="button" class="close">OK</button>
+            </div>
+        </div>
+         Error Modal
+        <div id="errorModal" class="modal">
+            <div class="modal-content error">
+                <i class="fa fa-times-circle"></i>
+                <p>Error: Sign out failed!</p>
+                <span id="errorMessage"></span>
+                <button type="button" class="close">Try Again</button>
+            </div>
+        </div> -->
+        <!--<div id="successModalContact" class="modal">
+            <div class="modal-content success">
+                <i class="fa fa-check-circle"></i>
+                <p>Message sent successfully!</p>
+                <button type="button" class="close">OK</button>
+            </div>
+        </div>
+    
+         Error Modal
+        <div id="errorModalContact" class="modal">
+            <div class="modal-content error">
+                <i class="fa fa-times-circle"></i>
+                <p>Error: Message sent failed!</p>
+                <span id="errorMessage"></span>
+                <button type="button" class="close">Try Again</button>
+            </div>
+        </div> -->
+
+        <div class="modal-content success">
+            <i class="fa fa-check-circle"></i>
+            <p>Order saved successfully!</p>
+            <button type="button" class="close">OK</button>
+        </div>
+    </div>
+
+    Error Modal
+    <div id="errorModalCheckout" class="modal">
+        <div class="modal-content error">
+            <i class="fa fa-times-circle"></i>
+            <p>Error: Checkout failed!</p>
+            <span id="errorMessage"></span>
+            <button type="button" class="close">Try Again</button>
+        </div>
+    </div> -->
+
+<section id="register">
+    <div>
+        <form>
+            <h1>Register</h1>
+            <label for="username">Username</label>
+            <input type="text" title="username" name="username" id="username">
+            <label for="email">Email</label>
+            <input type="text" title="email" name="email" id="email">
+
+            <label>First Name</label>
+            <input type="text" title="firstname" name="firstname" id="firstname">
+            <label>Last Name</label>
+            <input type="text" title="lastname" name="lastname" id="lastname">
+            <label for="age">Age</label>
+            <input type="number" title="age" name="age" id="age">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+                <option value="" disabled selected hidden></option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="password">Password</label>
+            <input type="password" title="password" name="password" id="password">
+
+            <h6>Have an account already? <a href="Login.html" class="a">Log-in Here!</a></h6>
+            
+            <button type="button"  id="register" name="register" >GETTING STARTED</button>
+        </form>
+    </div>
+</section>
+
+
+
+
+#sign .container.sign-up-mode2 form.sign-up-form .form-container{
+    display: flex;
+    opacity: 1;
+    width: 100%;
+}
+
+#sign .container.sign-up-mode2 form.sign-up-form .form-container .input-field{
+    margin-left:5px;
+    
+} 
+
+<section id="sm-banner" class="section-p1">
+    <div class="banner-box">
+        <h4>crazy deals</h4>
+        <h2>first buy get 1 free delivery</h2>
+        <span>the best classic farm tools is on sale</span>
+        <button class="normal">Learn More</button>
+    </div>
+
+    <div class="banner-box">
+        <h4>animal care</h4>
+        <h2>upcoming season</h2>
+        <span>your favorite tool helper</span>
+        <button class="normal">Collection</button>
+    </div>
+</section>
+
+<script>function populateProductTable() {
+    const productsContainer = document.getElementById('productsContainer');
+    productsContainer.innerHTML = ''; // Clear previous data
+
+    const dbRef = ref(db, 'product');
+    get(dbRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            const products = snapshot.val();
+            Object.keys(products).forEach((sku) => {
+                const product = products[sku];
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('pro');
+
+                
+
+                const img = document.createElement('img');
+                if (product.images && product.images.length > 0) {
+                    img.src = product.images[0]; // Use the first image from the array
+                } else {
+                    img.src = 'default-image.jpg'; // Provide a default image source if no images are available
+                }
+                img.alt = 'Product Image';
+                productDiv.appendChild(img);
+
+                const desDiv = document.createElement('div');
+                desDiv.classList.add('des');
+
+                const span = document.createElement('span');
+                span.textContent = product.category; // Assuming category is available in the data
+                desDiv.appendChild(span);
+
+                const h5 = document.createElement('h5');
+                h5.textContent = product.proName;                ;
+                desDiv.appendChild(h5);
+
+                const starDiv = document.createElement('div');
+                starDiv.classList.add('star');
+                for (let i = 0; i < 5; i++) {
+                    const starIcon = document.createElement('i');
+                    starIcon.classList.add('fas', 'fa-star');
+                    starDiv.appendChild(starIcon);
+                }
+                desDiv.appendChild(starDiv);
+
+                const h4 = document.createElement('h4');
+                h4.textContent = 'Price: ₱' + product.price +'.00';
+                desDiv.appendChild(h4);
+
+                const cartLink = document.createElement('a');
+                cartLink.href = `ShopDetail.html?sku=${sku}`;
+                const cartIcon = document.createElement('i');
+                cartIcon.classList.add('fa-solid', 'fa-cart-shopping', 'cart');
+                cartLink.appendChild(cartIcon);
+                desDiv.appendChild(cartLink);
+
+                productDiv.appendChild(desDiv);
+
+                productsContainer.appendChild(productDiv);
+            });
+        } else {
+            alert('No products found');
+        }
+    }).catch((error) => {
+        alert('Error fetching products: ' + error.message);
+    });
+}
+</script>
+
+function populateProductTable(pageNumber, pageSize) {
+    const productsContainer = document.getElementById('productsContainer');
+    productsContainer.innerHTML = '';
+    const dbRef = ref(db, 'product');
+    get(dbRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            const products = snapshot.val();
+            const productSkus = Object.keys(products);
+            const totalProducts = productSkus.length;
+
+            // Calculate the start and end index of products for the current page
+            const startIndex = (pageNumber - 1) * pageSize;
+            const endIndex = Math.min(startIndex + pageSize, totalProducts);
+
+            for (let i = startIndex; i < endIndex; i++) {
+                const sku = productSkus[i];
+                const product = products[sku];
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('pro');
+
+       
+                productsContainer.appendChild(productDiv);
+            }
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+
+            const totalPages = Math.ceil(totalProducts / pageSize);
+            const prevButton = document.createElement('button');
+            prevButton.textContent = 'Previous';
+            prevButton.addEventListener('click', (prevPage) => {
+                return () => {
+                    if (pageNumber > 1) {
+                        populateProductTable(pageNumber - 1, pageSize);
+                    }
+                };
+            });
+            paginationContainer.appendChild(prevButton);
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.addEventListener('click', (currentPage) => {
+                    return () => {
+                        populateProductTable(currentPage, pageSize);
+                    };
+                },(i));
+                paginationContainer.appendChild(button);
+            }
+
+            const nextButton = document.createElement('button');
+            nextButton.textContent = 'Next';
+            nextButton.addEventListener('click', (nextPage) => {
+                return () => {
+                    if (pageNumber < totalPages) {
+                        populateProductTable(pageNumber + 1, pageSize);
+                    }
+                };
+            });
+            paginationContainer.appendChild(nextButton);
+        } else {
+            alert('No products found');
+        }
+    }).catch((error) => {
+        alert('Error fetching products: ' + error.message);
+    });
+}
+
+
+function populateProductTable(pageNumber, pageSize) {
+    const productsContainer = document.getElementById('productsContainer');
+    productsContainer.innerHTML = '';
+    const dbRef = ref(db, 'product');
+    get(dbRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            const products = snapshot.val();
+            const productSkus = Object.keys(products);
+            const totalProducts = productSkus.length;
+
+            // Calculate the start and end index of products for the current page
+            const startIndex = (pageNumber - 1) * pageSize;
+            const endIndex = Math.min(startIndex + pageSize, totalProducts);
+
+            for (let i = startIndex; i < endIndex; i++) {
+                const sku = productSkus[i];
+                const product = products[sku];
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('pro');
+
+                const img = document.createElement('img');
+                if (product.images && product.images.length > 0) {
+                    img.src = product.images[0]; // Use the first image from the array
+                } else {
+                    img.src = 'default-image.jpg'; // Provide a default image source if no images are available
+                }
+                img.alt = 'Product Image';
+                productDiv.appendChild(img);
+
+                const desDiv = document.createElement('div');
+                desDiv.classList.add('des');
+
+                const span = document.createElement('span');
+                span.textContent = product.category; // Assuming category is available in the data
+                desDiv.appendChild(span);
+
+                const h5 = document.createElement('h5');
+                h5.textContent = product.proName;
+                desDiv.appendChild(h5);
+
+                const starDiv = document.createElement('div');
+                starDiv.classList.add('star');
+                for (let i = 0; i < 5; i++) {
+                    const starIcon = document.createElement('i');
+                    starIcon.classList.add('fas', 'fa-star');
+                    starDiv.appendChild(starIcon);
+                }
+                desDiv.appendChild(starDiv);
+
+                const h4 = document.createElement('h4');
+                h4.textContent = 'Price: ₱' + product.price + '.00';
+                desDiv.appendChild(h4);
+
+                const cartLink = document.createElement('a');
+                cartLink.href = `ShopDetail.html?sku=${sku}`;
+                const cartIcon = document.createElement('i');
+                cartIcon.classList.add('fa-solid', 'fa-cart-shopping', 'cart');
+                cartLink.appendChild(cartIcon);
+                desDiv.appendChild(cartLink);
+                productDiv.appendChild(desDiv);
+
+                productsContainer.appendChild(productDiv);
+            }
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+
+            const totalPages = Math.ceil(totalProducts / pageSize);
+            const prevButton = document.createElement('button');
+            prevButton.textContent = 'Previous';
+            prevButton.addEventListener('click', () => {
+                if (pageNumber > 1) {
+                    populateProductTable(pageNumber - 1, pageSize);
+                }
+            });
+            paginationContainer.appendChild(prevButton);
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.addEventListener('click', () => {
+                    populateProductTable(i, pageSize);
+                });
+                paginationContainer.appendChild(button);
+            }
+
+            const nextButton = document.createElement('button');
+            nextButton.textContent = 'Next';
+            nextButton.addEventListener('click', () => {
+                if (pageNumber < totalPages) {
+                    populateProductTable(pageNumber + 1, pageSize);
+                }
+            });
+            paginationContainer.appendChild(nextButton);
+        } else {
+            alert('No products found');
+        }
+    }).catch((error) => {
+        alert('Error fetching products: ' + error.message);
+    });
+}
+
+<script>
+    function populateProductTable(pageNumber, pageSize) {
+    const productsContainer = document.getElementById('productsContainer');
+    productsContainer.innerHTML = '';
+    const dbRef = ref(db, 'product');
+    get(dbRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            const products = snapshot.val();
+            const productSkus = Object.keys(products);
+            const totalProducts = productSkus.length;
+
+            const startIndex = (pageNumber - 1) * pageSize;
+            const endIndex = Math.min(startIndex + pageSize, totalProducts);
+
+            for (let i = startIndex; i < endIndex; i++) {
+                const sku = productSkus[i];
+                const product = products[sku];
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('pro');
+
+                const img = document.createElement('img');
+                if (product.images && product.images.length > 0) {
+                    img.src = product.images[0]; // Use the first image from the array
+                } else {
+                    img.src = 'default-image.jpg'; // Provide a default image source if no images are available
+                }
+                img.alt = 'Product Image';
+                productDiv.appendChild(img);
+
+                const desDiv = document.createElement('div');
+                desDiv.classList.add('des');
+
+                const span = document.createElement('span');
+                span.textContent = product.category; // Assuming category is available in the data
+                desDiv.appendChild(span);
+
+                const h5 = document.createElement('h5');
+                h5.textContent = product.proName;
+                desDiv.appendChild(h5);
+
+                const starDiv = document.createElement('div');
+                starDiv.classList.add('star');
+                for (let i = 0; i < 5; i++) {
+                    const starIcon = document.createElement('i');
+                    starIcon.classList.add('fas', 'fa-star');
+                    starDiv.appendChild(starIcon);
+                }
+                desDiv.appendChild(starDiv);
+
+                const h4 = document.createElement('h4');
+                h4.textContent = 'Price: ₱' + product.price + '.00';
+                desDiv.appendChild(h4);
+
+                const cartLink = document.createElement('a');
+                cartLink.href = `ShopDetail.html?sku=${sku}`;
+                const cartIcon = document.createElement('i');
+                cartIcon.classList.add('fa-solid', 'fa-cart-shopping', 'cart');
+                cartLink.appendChild(cartIcon);
+                desDiv.appendChild(cartLink);
+                productDiv.appendChild(desDiv);
+
+                productsContainer.appendChild(productDiv);
+            }
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+
+            const totalPages = Math.ceil(totalProducts / pageSize);
+            const prevButton = document.createElement('button');
+            prevButton.textContent = 'Previous';
+            prevButton.addEventListener('click', () => {
+                if (pageNumber > 1) {
+                    populateProductTable(pageNumber - 1, pageSize);
+                }
+            });
+            paginationContainer.appendChild(prevButton);
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.addEventListener('click', () => {
+                    populateProductTable(i, pageSize);
+                });
+                paginationContainer.appendChild(button);
+            }
+
+            const nextButton = document.createElement('button');
+            nextButton.textContent = 'Next';
+            nextButton.addEventListener('click', () => {
+                if (pageNumber < totalPages) {
+                    populateProductTable(pageNumber + 1, pageSize);
+                }
+            });
+            paginationContainer.appendChild(nextButton);
+        } else {
+            alert('No products found');
+        }
+    }).catch((error) => {
+        alert('Error fetching products: ' + error.message);
+    });
+}
+
+populateProductTable(1, 12);
+</script>
+
+Animal Care, Digging and Cultivating, Farm Tools, Garden Accessories, Pest Control, Wood Cutting and Hauling
+
+
+
+function createPriceRangeCheckboxes() {
+    const priceRanges = [
+        { min: 100, max: 200 },
+        { min: 200, max: 300 },
+        { min: 300, max: 500 },
+        { min: 500, max: 1000 },
+        { min: 1000, max: 1500 },
+        { min: 1500, max: 2000 }
+    ];
+
+    const priceRangeContainer = document.getElementById('priceRangeContainer');
+    priceRangeContainer.innerHTML = ''; // Clear previous checkboxes
+
+    priceRanges.forEach(range => {
+        const checkboxContainer = document.createElement('div');
+        checkboxContainer.classList.add('price-range-checkbox');
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = `price-range-${range.min}-${range.max}`;
+        checkbox.name = `price-range-${range.min}-${range.max}`;
+        checkbox.addEventListener('change', () => {
+            // Populate products based on selected price range
+            if (checkbox.checked) {
+                filterByPriceRange(range);
+            } else {
+                // If unchecked, clear the price range filter
+                populateProductTable(activeCategory, null);
+            }
+
+            // Uncheck all other price range checkboxes after using one
+            const otherCheckboxes = document.querySelectorAll('.price-range-checkbox input[type="checkbox"]');
+            otherCheckboxes.forEach(cb => {
+                if (cb !== checkbox) {
+                    cb.checked = false;
+                }
+            });
+        });
+
+        const label = document.createElement('label');
+        label.textContent = `$${range.min} - $${range.max}`;
+        label.htmlFor = `price-range-${range.min}-${range.max}`;
+
+        checkboxContainer.appendChild(checkbox);
+        checkboxContainer.appendChild(label);
+        priceRangeContainer.appendChild(checkboxContainer);
+    });
+}
+
+<html>
+    <head>
+        <style>
+            body {
+                font-family: 'Spartan',sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+                color: #333;
+                margin: 0;
+                padding: 20px;
+                background-color: #f9f9f9;
+            }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            h2 {
+                color: #296c00;
+                text-align: center;
+            }
+            p {
+                margin-bottom: 10px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+                border: none;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Order Confirmation</h2>
+
+            <p><strong>Customer:</strong> ${formData.firstName} ${formData.lastName},</p>
+            <p><strong>Phone Number:</strong> ${formData.phone}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+
+            <p>Your order has been received successfully!</p>
+
+            <h3>Order Details:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${cartItemsList}
+                </tbody>
+            </table>
+
+
+            <p>Thank you again for your purchase!</p>
+
+            <p style="font-weight: bold;">Best regards,<br>AgriGear Team</p>
+        </div>
+    </body>
+    </html>
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var breadcrumbs = document.getElementById("breadcrumbs");
+    
+        if (localStorage.getItem("breadcrumbs")) {
+            breadcrumbs.innerHTML = localStorage.getItem("breadcrumbs");
+        }
+    
+        var navLinks = document.querySelectorAll(".nav-link");
+    
+        navLinks.forEach(function(link) {
+            link.addEventListener("click", function(event) {
+                breadcrumbs.innerHTML = "";
+    
+                // Create and append the Home breadcrumb
+                var homeCrumb = document.createElement("a");
+                homeCrumb.textContent = "Home";
+                homeCrumb.href = "Home.html";
+                breadcrumbs.appendChild(homeCrumb);
+                breadcrumbs.innerHTML += " > ";
+    
+                if (link.getAttribute("href") === "Checkout.html") {
+                    var cartCrumb = document.createElement("a");
+                    cartCrumb.textContent = "Cart";
+                    cartCrumb.href = "Cart.html"; 
+                    cartCrumb.classList.add('nav-link');
+                    breadcrumbs.appendChild(cartCrumb);
+                    breadcrumbs.innerHTML += " > ";
+                }
+    
+                var currentPageCrumb = document.createElement("span");
+                currentPageCrumb.textContent = link.textContent;
+                breadcrumbs.appendChild(currentPageCrumb);
+    
+                // Save breadcrumbs to local storage
+                localStorage.setItem("breadcrumbs", breadcrumbs.innerHTML);
+            });
+        }); 
+    });
+
+
+    
+var cart = JSON.parse(sessionStorage.getItem('cart'));
+
+
+function populateCart() {
+    var cartItemsHtml = '';
+
+    var checkoutButton = document.getElementById('checkoutButton');
+    if (checkoutButton) {
+        checkoutButton.innerHTML = '<a class="nav-link" href="Checkout.html">Checkout</a>';
+    }
+
+    if (cart && cart.length > 0) {
+        cart.forEach(function(item, index) {
+            cartItemsHtml += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td><img src="../AgriPic/products/${item.proNum}.jpg" width="100%" id="small-img" alt=""></td>
+                    <td>${item.name}</td>
+                    <td>₱${item.price}</td>
+                    <td><input type="number" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)"></td>
+                    <td>₱${item.price * item.quantity}</td>
+                    <td><a href="#" onclick="removeItem(${index})"><i class="fa-solid fa-trash"> Remove</i></a></td>
+                </tr>
+            `;
+        });
+    } else {
+        cartItemsHtml += `<tr>
+            <td colspan="3">Cart is empty</td>
+            <td colspan="4"><img src="../AgriPic/backgrounds/empty.png" class="empty-cart"></td>  
+        </tr>`;
+    }
+    document.getElementById('cart-items').innerHTML = cartItemsHtml;
+    updateCartCount();
+}
+var subtotal = calculateSubtotal(); // Replace calculateSubtotal() with your actual subtotal calculation
+
+
+var subtotalSpan = document.getElementById('subtotalAmount');
+if (subtotalSpan) {
+    subtotalSpan.textContent = '₱ ' + subtotal.toFixed(2);
+}
+
+var shippingCost = 50.00;
+var totalCost = subtotal + shippingCost;
+
+var totalCostSpan = document.getElementById('totalAmount');
+if (totalCostSpan) {
+    totalCostSpan.textContent = '₱ ' + totalCost.toFixed(2);
+}
+
+function calculateSubtotal() {
+    var cart = JSON.parse(sessionStorage.getItem('cart'));
+    if (!cart || cart.length === 0) {
+        return 0;
+    }
+
+    var subtotal = 0;
+    cart.forEach(function(item) {
+        subtotal += item.price * item.quantity;
+    });
+
+    return subtotal;
+}
+function updateCartCount() {
+    var cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+    var cartCount = cart.length;
+    var uniqueItems = new Set(cart.map(item => item.sku));
+    var cartCount = uniqueItems.size;
+    var cartCountSpan = document.getElementById('cartCount');
+    cartCountSpan.textContent = cartCount;
+
+    if (cartCount > 0) {
+        cartCountSpan.style.display = 'inline'; 
+    } else {
+        cartCountSpan.style.display = 'none';
+    }
+
+    var updateCartCountSpan = document.getElementById('updateCartCount');
+    if (updateCartCountSpan) {
+        updateCartCountSpan.textContent = cartCount;
+    }
+}
+
+updateCartCount();
+
+function updateCartAfterRemove() {
+    updateCartCount();
+}
+
+function updateQuantity(index, newQuantity) {
+    if (newQuantity > 0) {
+        cart[index].quantity = parseInt(newQuantity);
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+        populateCart();
+        updateCartCount(); 
+    }
+}
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+    populateCart();
+    updateCartCount(); 
+}
+
+function clearCart() {
+    sessionStorage.removeItem("cart");
+    
+    // Reset the cart count in the header
+    const cartCountSpan = document.getElementById('cartCount');
+    if (cartCountSpan) {
+        cartCountSpan.textContent = '0';
+        cartCountSpan.style.display = 'none'; // Hide cart count when cart is empty
+    }
+    populateCart();
+}
+
+window.onload = function() {
+    console.log(cart); // Check the value of cart retrieved from sessionStorage
+    populateCart(); 
+};
+
+
+function populateProductTable(category, priceRange) {
+    const productsContainer = document.getElementById('productsContainer');
+
+    const loadingScreen = document.getElementById("loading-screen");
+    const dataList = document.getElementById("product");
+    const listContainer = document.getElementById("list-container");
+
+    // Show loading screen
+    loadingScreen.style.display = "flex";
+    dataList.style.display = "none";
+    
+    productsContainer.innerHTML = ' ';
+    const dbRef = ref(db, 'product');
+    get(dbRef).then((snapshot) => {
+        if (snapshot.exists()) {
+
+            loadingScreen.style.display = "none";
+            dataList.style.display = "flex";
+
+            const products = snapshot.val();
+            const productSkus = Object.keys(products);
+            const filteredProducts = category ? productSkus.filter(sku => products[sku].category === category) : productSkus;
+
+             // Filter products by price range if specified
+             const priceFilteredProducts = priceRange ? filteredProducts.filter(sku => {
+                const productPrice = products[sku].price;
+                return productPrice >= priceRange.min && productPrice <= priceRange.max;
+            }) : filteredProducts;
+
+            priceFilteredProducts.forEach(sku => {
+                const product = products[sku];
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('pro');
+
+                const img = document.createElement('img');
+                if (product.images && product.images.length > 0) {
+                    img.src = product.images[0]; // Use the first image from the array
+                } else {
+                    img.src = 'default-image.jpg'; // Provide a default image source if no images are available
+                }
+                img.alt = 'Product Image';
+                productDiv.appendChild(img);
+
+                const desDiv = document.createElement('div');
+                desDiv.classList.add('des');
+
+                const span = document.createElement('span');
+                span.textContent = product.category; // Assuming category is available in the data
+                desDiv.appendChild(span);
+
+                const h5 = document.createElement('h5');
+                h5.textContent = product.proName;
+                desDiv.appendChild(h5);
+
+
+                const h4 = document.createElement('h4');
+                    h4.textContent = 'Price: ₱' + product.price + '.00';
+                    desDiv.appendChild(h4);
+
+                    const cartLink = document.createElement('a');
+                    cartLink.href = `ShopDetail.html?sku=${sku}`;
+                    cartLink.classList.add('nav-link'); 
+
+                    const cartContainer = document.createElement('div');
+                    cartContainer.classList.add('cart');
+
+
+                    const cartIcon = document.createElement('i');
+                    cartIcon.classList.add('fa-solid', 'fa-cart-shopping');
+                    cartContainer.appendChild(cartIcon);
+
+                    const viewDetails = document.createElement('span');
+                    viewDetails.textContent = 'View Details'; 
+                    cartIcon.appendChild(viewDetails); 
+
+                    cartLink.addEventListener('click', function(event) {
+                        event.preventDefault();
+    
+                        // Clear the breadcrumb
+                        breadcrumbs.innerHTML = '';
+    
+                        // Create and append the Home breadcrumb
+                        const homeCrumb = document.createElement('a');
+                        homeCrumb.textContent = 'Home';
+                        homeCrumb.href = 'Home.html';
+                        breadcrumbs.appendChild(homeCrumb);
+    
+                        // Append the separator
+                        breadcrumbs.innerHTML += ' > ';
+    
+                        // Create and append the Shop breadcrumb
+                        const shopCrumb = document.createElement('a');
+                        shopCrumb.textContent = 'Shop';
+                        shopCrumb.href = 'Shop.html';
+                        shopCrumb.classList.add('nav-link');
+                        breadcrumbs.appendChild(shopCrumb);
+    
+                        // Append the separator
+                        breadcrumbs.innerHTML += ' > ';
+    
+                        // Create and append the product breadcrumb
+                        const productCrumb = document.createElement('span');
+                        productCrumb.textContent = product.proName;
+                        breadcrumbs.appendChild(productCrumb);
+    
+                        // Save breadcrumbs to local storage
+                        localStorage.setItem('breadcrumbs', breadcrumbs.innerHTML);
+    
+                        // Navigate to the product detail page
+                        window.location.href = cartLink.href;
+                    });
+
+                    desDiv.appendChild(cartContainer);
+                    cartLink.appendChild(cartContainer);
+                    desDiv.appendChild(cartLink);
+                    productDiv.appendChild(desDiv);
+                    productsContainer.appendChild(productDiv);
+            });
+        } else {
+            alert('No products found');
+        }
+    }).catch((error) => {
+        console.log('Error fetching products: ' + error.message);
+    });
+}
+
+
+function populateProductTable(category, priceRange, pageNumber = 1, pageSize = 9, keyword = '') {
+    // Store category and priceRange in global variables
+    categoryFilter = category;
+    priceRangeFilter = priceRange;
+
+    const productsContainer = document.getElementById('productsContainer');
+    const loadingScreen = document.getElementById("loading-screen");
+    const dataList = document.getElementById("product");
+    const listContainer = document.getElementById("list-container");
+
+    // Show loading screen
+    loadingScreen.style.display = "flex";
+    dataList.style.display = "none";
+    productsContainer.innerHTML = '';
+
+    const dbRef = ref(db, 'product');
+    get(dbRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            
+            loadingScreen.style.display = "none";
+            dataList.style.display = "flex";
+
+            const products = snapshot.val();
+            const productSkus = Object.keys(products);
+
+            // Filter products by category
+            const filteredProducts = category ? productSkus.filter(sku => products[sku].category === category) : productSkus;
+
+            // Filter products by price range
+            const priceFilteredProducts = priceRange ? filteredProducts.filter(sku => {
+                const productPrice = products[sku].price;
+                return productPrice >= priceRange.min && productPrice <= priceRange.max;
+            }) : filteredProducts;
+
+            console.log('Price Filtered Products:', priceFilteredProducts);
+
+            // Adjust matching criteria based on your data structure and search requirements
+            const searchFilteredProducts = keyword ? priceFilteredProducts.filter(sku => {
+                const product = products[sku];
+                if (!product || !product.proName || !product.category) {
+                    return false; // Skip products with missing or undefined properties
+                }
+            
+                const productName = product.proName.toLowerCase();
+                const productCategory = product.category.toLowerCase();
+                const searchQuery = keyword.toLowerCase();
+            
+                // Check if the product name or category matches the search query
+                const matchesName = productName.includes(searchQuery);
+                const matchesCategory = productCategory.includes(searchQuery);
+            
+                return matchesName || matchesCategory;
+            }) : priceFilteredProducts;
+            
+
+            
+            console.log('Search Filtered Products:', searchFilteredProducts);
+
+            // Implement pagination
+            const startIndex = (pageNumber - 1) * pageSize;
+            const endIndex = startIndex + pageSize;
+            const paginatedProducts = searchFilteredProducts.slice(startIndex, endIndex);
+
+            paginatedProducts.forEach(sku => {
+                const product = products[sku];
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('pro');
+
+                // Create elements for displaying product information
+                const img = document.createElement('img');
+                if (product.images && product.images.length > 0) {
+                    img.src = product.images[0]; // Use the first image from the array
+                } else {
+                    img.src = 'default-image.jpg'; // Provide a default image source if no images are available
+                }
+                img.alt = 'Product Image';
+                productDiv.appendChild(img);
+
+                const desDiv = document.createElement('div');
+                desDiv.classList.add('des');
+
+                const span = document.createElement('span');
+                span.textContent = product.category; // Assuming category is available in the data
+                desDiv.appendChild(span);
+
+                const h5 = document.createElement('h5');
+                h5.textContent = product.proName;
+                desDiv.appendChild(h5);
+
+                const h4 = document.createElement('h4');
+                h4.textContent = 'Price: ₱' + product.price + '.00';
+                desDiv.appendChild(h4);
+
+                const cartLink = document.createElement('a');
+                cartLink.href = `ShopDetail.html?sku=${sku}`;
+                cartLink.classList.add('nav-link');
+
+                const cartContainer = document.createElement('div');
+                cartContainer.classList.add('cart');
+
+                const cartIcon = document.createElement('i');
+                cartIcon.classList.add('fa-solid', 'fa-cart-shopping');
+                cartContainer.appendChild(cartIcon);
+
+                const viewDetails = document.createElement('span');
+                viewDetails.textContent = 'View Details';
+                cartIcon.appendChild(viewDetails);
+
+                cartLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    // Clear the breadcrumb
+                    breadcrumbs.innerHTML = '';
+
+                    // Create and append the Home breadcrumb
+                    const homeCrumb = document.createElement('a');
+                    homeCrumb.textContent = 'Home';
+                    homeCrumb.href = 'Home.html';
+                    breadcrumbs.appendChild(homeCrumb);
+
+                    // Append the separator
+                    breadcrumbs.innerHTML += ' > ';
+
+                    // Create and append the Shop breadcrumb
+                    const shopCrumb = document.createElement('a');
+                    shopCrumb.textContent = 'Shop';
+                    shopCrumb.href = 'Shop.html';
+                    shopCrumb.classList.add('nav-link');
+                    breadcrumbs.appendChild(shopCrumb);
+
+                    // Append the separator
+                    breadcrumbs.innerHTML += ' > ';
+
+                    // Create and append the product breadcrumb
+                    const productCrumb = document.createElement('span');
+                    productCrumb.textContent = product.proName;
+                    breadcrumbs.appendChild(productCrumb);
+
+                    // Save breadcrumbs to local storage
+                    localStorage.setItem('breadcrumbs', breadcrumbs.innerHTML);
+
+                    // Navigate to the product detail page
+                    window.location.href = cartLink.href;
+                });
+
+                desDiv.appendChild(cartContainer);
+                cartLink.appendChild(cartContainer);
+                desDiv.appendChild(cartLink);
+                productDiv.appendChild(desDiv);
+                productsContainer.appendChild(productDiv);
+            });
+
+            // Render pagination controls
+            renderPaginationControls(searchFilteredProducts.length, pageNumber, pageSize);
+        } else {
+            alert('No products found');
+        }
+    }).catch((error) => {
+        console.log('Error fetching products: ' + error.message);
+    });
+}
+
+// Event listener for the search button
+const searchButton = document.getElementById('searchButton');
+searchButton.addEventListener('click', () => {
+    const searchInput = document.getElementById('searchInput').value.trim();
+    const category = getCategoryFromSearchInput(searchInput); // Extract category from search input
+    const keyword = searchInput.toLowerCase(); // Convert keyword to lowercase for case-insensitive search
+    populateProductTable(category, null, 1, 9, keyword); // Call populateProductTable with search keyword
+});
+
+// Event listener for real-time search as user types
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', () => {
+    const searchKeyword = searchInput.value.trim().toLowerCase(); // Get trimmed and lowercase search keyword
+    const category = getCategoryFromSearchInput(searchKeyword); // Extract category from search input
+    populateProductTable(category, null, 1, 9, searchKeyword); // Call populateProductTable with updated search keyword
+});
+
+// Function to extract category from search input (assuming user types "category:XYZ")
+function getCategoryFromSearchInput(searchInput) {
+    const categoryPrefix = 'category:';
+    if (searchInput.startsWith(categoryPrefix)) {
+        return searchInput.substring(categoryPrefix.length).trim(); // Extract category after prefix
+    }
+    return null; 
+}
+
+<div class="row">
+                
+    <div class="col-md-3">
+        <label for="theme-select">What types of tools and equipment does Agrigear offer?</label>
+        <p>Agrigear offers a wide range of tools and equipment tailored specifically for farmers' needs. This includes everything from
+            Animal Care, Digging and Cultivating, Farm Tools, Garden Accessories, Pest Control and Wood Cutting and Hauling</p>
+    </div>
+    <div class="col-md-3">
+        <label for="theme-select">What if I encounter issues with my purchase or need assistance after buying a product?</label>
+        <p>AgriGear customer support team is here to help!
+            If you encounter any issues or have questions about a product, you can reach out to our dedicated customer service representatives via phone, email, and other social media site. </p>
+    </div>
+    <div class="col-md-3">
+        <label for="theme-select">What payment options are available on Agrigear?</label>
+        <p>Currently, we exclusively offer cash on delivery (COD) as the payment method for orders placed on our platform.
+            This ensures a hassle-free transaction experience for our customers in Dumaguete City, allowing you to pay for your agricultural tools and equipment directly upon delivery.</p>
+    </div>
+    <div class="col-md-3">
+        <label for="theme-select">What areas do you offer this service?</label>
+        <p>Agrigear is currently available exclusively in Dumaguete City, as it represents the storefront and website version.
+            Our focus on Dumaguete City allows us to build a strong foundation and gather feedback from local farmers before expanding.
+            However, we are committed to eventual expansion to other areas to refine our services.</p>
+    </div>
+</div>
+
+function updateUserUI(user) {
+    const signInOption = document.getElementById('signInOption');
+    const profileOption = document.getElementById('profileOption');
+    const historyOption = document.getElementById('historyOption');
+    const signOutOption = document.getElementById('signOutOption');
+
+    if (user) {
+        signInOption.style.display = 'none'; 
+        profileOption.style.display = 'block'; 
+        historyOption.style.display = 'block'; 
+        signOutOption.style.display= 'block'; 
+    } else {
+        // User is not authenticated
+        signInOption.style.display = 'block'; // Show Sign In option
+        profileOption.style.display = 'none'; // Hide Profile option
+        historyOption.style.display = 'none'; // Hide View History option
+        signOutOption.style.display= 'none'; // Update button text
+    }
+}
+
+{
+    #checkout{
+        display:flex;
+        justify-content:space-around;
+    }
+    
+    #checkout{
+        font-size:25px;
+    }
+    
+    #checkout .billing{
+        display:flex;
+        flex-direction:column;
+        width:60%;
+        padding: 0px 30px;
+    }
+    
+    #checkout form{
+        display:flex;
+        justify-content:space-between;
+    }
+    
+    #checkout .billing .checkout-personal{
+        padding: 15px 10px;
+        justify-content: space-between;
+        display:flex;
+    }
+    
+    #checkout .billing .checkout-personal input{
+        padding: 8px;
+        width:48%;
+    }
+    
+    #checkout .billing .checkout-address{
+        padding: 10px;
+        justify-content: space-around;
+        display:flex;
+    }
+    
+    #checkout .billing .checkout-subtotal{
+        margin-bottom: 30px;
+        border: 1px solid #e1e1e1;
+        padding: 30px;
+        width:100%;
+    }
+    
+    #checkout .billing .checkout-address .street,
+    #checkout .billing .checkout-address input{
+        padding: 8px;
+        margin:0 10px 0 0;
+        width:48%;
+    }
+    
+    #checkout .billing .checkout-address .street{
+        padding: 8px;
+        margin:0 10px 0 0;
+        width:100%;
+    }
+    
+    
+    #checkout .checkout-summary{
+        display:flex;
+        flex-direction:column;
+        width:40%;
+    }
+    
+    #checkout  table{
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    #checkout  table td{
+        width: 50%;
+        border: 1px solid #e1e1e1;
+        padding: 10px;
+        font-size: 13px;
+    
+    }
+}
+
+function addToCart(sku, proName, price, proNum) {
+    var quantityInput = document.getElementById('quantity');
+    var quantity = parseInt(quantityInput.value);
+
+    if (isNaN(quantity) || quantity <= 0) {
+        console.error('Invalid quantity');
+        return;
+    }
+
+    var cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+    var existingItem = cart.find(item => item.sku === sku);
+
+    if (existingItem) {
+        existingItem.quantity += quantity;
+    } else {
+        cart.push({
+            sku: sku,
+            name: proName,
+            price: price,
+            quantity: quantity,
+            proNum: proNum
+        });
+    }
+
+    updateCartCount();
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+
+    const successModal = document.getElementById("successModal");
+    successModal.style.display = "block";
+
+    const successCloseBtn = successModal.querySelector(".close");
+    successCloseBtn.addEventListener("click", () => {
+        successModal.style.display = "none";
+    });
+}
+
+    <!--<section id="checkout" class="section-p1">
+        <div class="checkout">
+            <form action="" name="orderform" method="post">
+            <div class="billing">
+                <h3>Billing Address</h3>
+                
+                <div class="checkout-form">
+                        <h4>Personal Information</h4>
+                        <div class="checkout-personal">
+                            <input type="text" placeholder="Last Name"  id="Clastname" name="Clastname">
+                            <input type="text" placeholder="First Name"  id="Cfirstname" name="Cfirstname">
+                        </div>
+                        <div class="checkout-personal">
+                            <input type="text" placeholder="Email"  id="Cemail" name="Cemail" class="Cemail">
+                            <input type="text" placeholder="Phone"  id="Cphone" name="Cphone" class="Cphone">
+                        </div>
+                        <h4>Address Information</h4>
+                        <div class="checkout-address">
+                            <input type="text" placeholder="Street"  id="Cstreet" name="Cstreet" class="street">
+                        </div>
+                        <div class="checkout-address">
+                            <input type="text" placeholder="Region"  id="Cregion" name="Cregion">
+                            <input type="text" placeholder="City"  id="Ccity" name="Ccity">
+                            <input type="text" placeholder="ZIP Code"  id="Czip" name="Czip">
+                        </div>                   
+                    </div>
+            </div>
+         <div class="checkout-summary">
+            <div class="checkout-subtotal">
+                <h3>Cart Total</h3>
+            <table>
+                <tr>
+                    <td>Number of Cart Items</td>
+                    <td><span id="updateCartCount"></span></td>
+                </tr>
+                <tr>
+                    <td>Subtotal</td>
+                    <td><span id="subtotalAmount"></span></td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>₱50.00</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong><span id="totalAmount"></span></strong></td>
+                </tr>
+                </table>
+            </div>
+            <div class="checkout-payment">
+                <h4>Payment Method</h4>
+            
+                <div class="checkout-gcash">
+                    <input type="radio" id="gcashRadio" name="paymentMethod" value="gcash">
+                    <label for="gcashRadio">GCash</label>
+                </div>
+                <div class="checkout-cod">
+                    <input type="radio" id="codRadio" name="paymentMethod" value="cod">
+                    <label for="codRadio">Cash on Delivery</label>
+            
+                    <div id="codDetails" style="display: none;">
+                        <p>Terms and Conditions:</p>
+                        <ul>
+                            <li>Cash payment is due upon delivery.</li>
+                            <li>Please prepare exact change.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit">Purchase</button>
+        </div>
+        </div>
+        
+       
+        </form>
+    </section>-->
+
+    <!--
+addButton.addEventListener('click', () => {
+    const images = [];
+    const proNum = proNumInput.value;
+    const sku = skuInput.value;
+    const category = categoryInput.value;
+    const proName = nameInput.value;
+    const stock = stockInput.value;
+    const quantity = quanInput.value;
+    const price = priceInput.value;
+    const proDetail = descriptionInput.value;
+    const shortDetail = shortInput.value;
+
+    // Read and convert each selected image file to base64
+    const imageInputs = [imageIn1, imageIn2, imageIn3, imageIn4];
+    const readerPromises = imageInputs.map(imageInput => {
+        return new Promise((resolve, reject) => {
+            const file = imageInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const imageBase64 = event.target.result;
+                    images.push(imageBase64);
+                    resolve();
+                };
+                reader.onerror = (error) => {
+                    reject(error);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                resolve(); 
+            }
+        });
+    });
+
+    Promise.all(readerPromises).then(() => {
+        set(ref(database, 'product/' + sku), {
+            proNum: proNum,
+            sku: sku,
+            category: category,
+            proName: proName,
+            stock: stock,
+            quantity: quantity,
+            price: price,
+            proDetail: proDetail,
+            shortDetail: shortDetail,
+            images: images
+        }).then(() => {
+            alert('Product added successfully');
+            clearInventoryScreen();
+        }).catch((error) => {
+            alert('Error adding product: ' + error.message);
+        });
+    }).catch((error) => {
+        alert('Error reading images: ' + error.message);
+    });
+});
+
+function clearInventoryScreen() {
+    document.getElementById('proNum').value = '';
+    document.getElementById('sku').value = '';
+    document.getElementById('category').value = '';
+    document.getElementById('proName').value = '';
+    document.getElementById('stock').value = '';
+    document.getElementById('quantity').value = '';
+    document.getElementById('price').value = '';
+    document.getElementById('proDetail').value = '';
+    document.getElementById('shortDetail').value = '';
+
+    document.getElementById('imagePreviews1').innerHTML = '';
+    document.getElementById('imagePreviews2').innerHTML = '';
+    document.getElementById('imagePreviews3').innerHTML = '';
+    document.getElementById('imagePreviews4').innerHTML = '';
+    // Resetting file input element
+    const fileInput = document.getElementById('imageInput');
+    fileInput.value = '';
+    if (fileInput.files) {
+        fileInput.files = null; // Clearing the selected files (optional)
+    }
+}
+
+
+viewButton.addEventListener('click', () => {
+const sku = skuInput.value;
+const productRef = ref(database, 'products/' + sku);
+get(productRef).then((snapshot) => {
+    if (snapshot.exists()) {
+        const product = snapshot.val();
+        nameInput.value = product.name;
+        descriptionInput.value = product.description;
+        stockInput.value = product.stock;
+        productImage.src = product.image; 
+    } else {
+        alert('Product not found');
+    }
+}).catch((error) => {
+    alert('Error viewing product: ' + error.message);
+});
+});
+-->
+    
+
+  <!--<div id="successModalCheckout" class="modal">

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriGear: FAQ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="../AgriPic/default/AG.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+</head>
+<body>
+    <div id="scroll"></div>
+    <section id="header" >   
+        <div class="header-top">
+            <div class="nav-left">
+                <a href="index.html"><img src="../AgriPic/default/LogoAgriGear.png" alt="Home of AgriGear" title="Home of AgriGear"></a>
+            </div>
+                <div class="nav-right nav-account">             
+                   <li id="myAccountDropdown" class="dropdown">
+                        <a  href="#" role="button" id="myAccountDropdownMenu" aria-haspopup="true" aria-expanded="false">
+                            <span id="usernameDisplay" class="username">My Account</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="myAccountDropdownMenu">
+                            <a class="dropdown-item unauthenticated" id="signInOption" href="Sign.html">Sign In</a>
+                            <a class="dropdown-item authenticated" id="profileOption" href="Profile.html" style="display: none;"><i class="fa-solid fa-user"></i>Profile</a>
+                            <a class="dropdown-item authenticated" id="historyOption" href="History.html" style="display: none;"><i class="fa-solid fa-history"></i>Order History</a>
+                            <a class="dropdown-item authenticated" id="signOutOption" href="#"><i class="fa-solid fa-sign-out-alt"></i>Sign Out</a>
+                        </div>
+                    </li>
+                    <li id="signInLinkAnchor"><a href="Sign.html"><span>Sign In</span></a></li> 
+                </div>
+            </div>
+             <div id="mobile">
+                <i id="bar" class="fas fa-outdent"></i>
+            </div> 
+            <ul id="navbar">
+                <div class="header-bottom"> 
+                    <div class="nav-left">
+                        <li><a class="nav-link" href="index.html">Home</a></li>
+                        <li><a class="nav-link active" href="About.html">About Us</a> </li>
+                        <li><a class="nav-link" href="Shop.html">Shop</a></li>
+                        <li><a class="nav-link" href="Contact.html">Contact Us</a></li>
+                        <li><a class="nav-link" href="Site.html">Site Map</a></li>
+                        <li><a class="nav-link" href="Settings.html">Preference</a></li>
+                    </div>
+                    <div class="nav-right">
+                        <li><a class="nav-link" href="Cart.html" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span id="cartCount"></span></a></li>          </div> 
+                    <a href="#" id="close"><i class="fa-solid fa-times"></i></a>   
+            
+                </ul> 
+            </div>
+    </section>
+
+    <section id="breadcrumbs" class="section-p1">
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <span class="separator">&raquo;</span>
+            <a href="About.html">About</a>
+            <span class="separator">&raquo;</span>
+            <span>Frequently Asked Questions</span> 
+        </div>
+    </section>
+
+    <section id="faq" class="section-p1">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="sidebar">
+                <button class="tab-link active" data-tab="tab1">About Services</button>
+                <button class="tab-link" data-tab="tab2">About Payment</button>
+                <button class="tab-link" data-tab="tab3">About Assistance</button>
+            </div>
+            <div class="tab-content">
+                <div id="tab1" class="tab-pane active">
+                    <div class="faq">
+                        <button class="accordion">What types of tools and equipment does Agrigear offer?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="panel">
+                            <p>Agrigear offers a wide range of tools and equipment tailored specifically for farmers' needs. This includes everything from Animal Care, Digging and Cultivating, Farm Tools, Garden Accessories, Pest Control, and Wood Cutting and Hauling.</p>
+                        </div>
+                    </div>
+                    <div class="faq">
+                        <button class="accordion">What areas do you offer this service?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="panel">
+                            <p>Agrigear is currently available exclusively in Dumaguete City, as it represents the storefront and website version. Our focus on Dumaguete City allows us to build a strong foundation and gather feedback from local farmers before expanding. However, we are committed to eventual expansion to other areas to refine our services.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab2" class="tab-pane">
+                    <div class="faq">
+                        <button class="accordion">What if I encounter issues with my purchase or need assistance after buying a product?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="panel">
+                            <p>AgriGear customer support team is here to help! If you encounter any issues or have questions about a product, you can reach out to our dedicated customer service representatives via phone, email, and other social media site.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab3" class="tab-pane">
+                    <div class="faq">
+                        <button class="accordion">What payment options are available on Agrigear?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="panel">
+                            <p>Currently, we exclusively offer cash on delivery (COD) as the payment method for orders placed on our platform. This ensures a hassle-free transaction experience for our customers in Dumaguete City, allowing you to pay for your agricultural tools and equipment directly upon delivery.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="form-details">
+            <form id="messageForm" action="/submit_form" method="POST">
+                <h4>Ask More Questions</h4>
+                <input type="text" name="name" id="nameInput" placeholder="Your Name" required>
+                <input type="email" name="email" id="emailInput" placeholder="E-mail" required>
+                <input type="text" name="subject" id="subjectInput" placeholder="Subject" required>
+                <textarea name="message" id="messageInput" cols="20" rows="10" placeholder="Your Message" required></textarea>
+                <button type="submit" class="normal" id="submitButton"><span>Submit</span></button>
+            </form>
+        </div>
+    </section>
+
+    <section id="scroll-floaters">
+        <div class="scroll-buttons">
+            <button id="scrollUpBtn" class="scroll-btn">▲</button>
+            <button id="scrollDownBtn" class="scroll-btn">▼</button>
+        </div>
+    </section>
+    <section id="modal">
+        <div id="successModal" class="modal">
+            <div class="modal-content success">
+                <i class="fa fa-check-circle"></i>
+                <p id="successMessage"></p>
+                <button type="button" class="close">OK</button>
+            </div>
+        </div>
+        <div id="errorModal" class="modal">
+            <div class="modal-content error">
+                <i class="fa fa-times-circle"></i>
+                <p id="errorMessage"></p>
+                <button type="button" class="close">Try Again</button>
+            </div>
+        </div>
+    </section>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="protanopia-filter">
+                <feColorMatrix type="matrix" values="0.567 0.433 0 0 0 0.558 0.442 0 0 0 0 0.242 0.758 0 0 0 0 0 1 0" />
+            </filter>
+            <filter id="tritanopia-filter">
+                <feColorMatrix type="matrix" values="1 0 0 0 0 0 0.95 0 0 0 0 0 0.082 0 0 0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <footer class="section-p1" id="footer">
+        <div class="col">
+        <a href="index.html"><img src="../AgriPic/default/LogoAgriGear.png" alt="Home of AgriGear" title="Home of AgriGear"></a>
+        <h4>Contact Us</h4>
+        <p><strong>Address: </strong>Silliman Avenue, Dumaguete City Philippines</p>
+        <p><strong>Phone: </strong>+63 912 2345 342/ +63 955 1850 136</p>
+        <p><strong>Email: </strong>agrigear4@gmail.com</p>
+        <p><strong>Hours: </strong>9:00 a.m. - 5:00 p.m.,Monday to Saturday</p>
+        </div>
+
+        <div class="col">
+            <h4>Know Us More</h4>
+            <a href="About.html" class="nav-link">About Us</a>
+            <a href="Contact.html#form-details" class="nav-link">Contact Us</a>
+            <a href="Faq.html" class="nav-link">Frequently Asked Questions</a>
+            <a href="Terms.html" class="nav-link">Terms & Conditions</a>
+            <a href="Data.html" class="nav-link">Website Data Policy</a>
+        </div>
+        <div class="col">
+            <h4>Follow Us</h4>
+            <a href="https://www.facebook.com/profile.php?id=61559642978119&mibextid=ZbWKwL"><i class="fab fa-facebook"></i>Facebook</a>
+            <a href="https://l.messenger.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fagrigear4%2F&h=AT2NQ9Tor38r-BLXu7WlzaYjwHMGY33Iqok2yTGMMEa3qNAJUvDoZe-zOSNVtblMLiEEMCF5TQ6w4XgzIfdfZqq8r-TPKvKRPMRE-n0FteWpq1oIAVUgcZWPVaLRYYF67xuZOQ"><i class="fab fa-instagram"></i>Instagram</a>
+            <a href="https://l.messenger.com/l.php?u=https%3A%2F%2Fyoutube.com%2F%40agrigear4%3Fsi%3DwiqZBGKd4VD51KR-&h=AT0hc_i5urYeHYWNCeL0ReJGM1G13kcJMxpHfDMlHWkGpuYdTVXcseTRIlp1oBh85TvFjNZSLCXXlVpM2afcpLERD_BtYlPMB0s5f-rWFSRky5IOwubN4Z_A9aTnlglK-It8Tw"><i class="fab fa-youtube"></i>Youtube</a>
+        </div>
+        <div class="col install">
+        </div>
+        <div class="copyright">
+            <p>©2024, AHT-AgriDito - AgriGear: Farm Tools and Equipment</p>
+        </div>
+    </footer>
+
+</body>
+<script src="/js/firebase/cart.js"></script>
+<script type="module" src="/js/firebase/feedback.js"></script>
+<script type="module" src="/js/firebase/home.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/setting.js"></script>
+<script type="module" src="/js/firebase/shop.js"></script>
+</html>
