@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriGear: Farm Tools and Equipment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="../AgriPic/default/AG.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+</head>
+<body>
+    <div id="scroll"></div>
+    <section id="header" >   
+        <div class="header-top">
+            <div class="nav-left">
+                <a href="index.html"><img src="../AgriPic/default/LogoAgriGear.png" alt="Home of AgriGear" title="Home of AgriGear"></a>
+            </div>
+                <div class="nav-right nav-account">             
+                   <li id="myAccountDropdown" class="dropdown">
+                        <a  href="#" role="button" id="myAccountDropdownMenu" aria-haspopup="true" aria-expanded="false">
+                            <span id="usernameDisplay" class="username">My Account</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="myAccountDropdownMenu">
+                            <a class="dropdown-item unauthenticated" id="signInOption" href="Sign.html">Sign In</a>
+                            <a class="dropdown-item authenticated" id="profileOption" href="Profile.html" style="display: none;"><i class="fa-solid fa-user"></i>Profile</a>
+                            <a class="dropdown-item authenticated" id="historyOption" href="History.html" style="display: none;"><i class="fa-solid fa-history"></i>Order History</a>
+                            <a class="dropdown-item authenticated" id="signOutOption" href="#"><i class="fa-solid fa-sign-out-alt"></i>Sign Out</a>
+                        </div>
+                    </li>
+                    <li id="signInLinkAnchor"><a href="Sign.html"><span>Sign In</span></a></li> 
+                </div>
+            </div>
+             <div id="mobile">
+                <i id="bar" class="fas fa-outdent"></i>
+            </div> 
+            <ul id="navbar">
+                <div class="header-bottom"> 
+                    <div class="nav-left">
+                        <li><a class="nav-link active" href="index.html">Home</a></li>
+                        <li><a class="nav-link" href="About.html">About Us</a> </li>
+                        <li><a class="nav-link" href="Shop.html">Shop</a></li>
+                        <li><a class="nav-link" href="Contact.html">Contact Us</a></li>
+                        <li><a class="nav-link" href="Site.html">Site Map</a></li>
+                        <li><a class="nav-link" href="Settings.html">Preference</a></li>
+                    </div>
+                    <div class="nav-right">
+                        <li><a class="nav-link" href="Cart.html" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span id="cartCount"></span></a></li>          </div> 
+                    <a href="#" id="close"><i class="fa-solid fa-times"></i></a>   
+                </ul> 
+            </div>
+    </section>
+    <section id="hero" role="img" aria-label="Farmer, A Gardener. Green sets of farmer tools. Assorted Garden Tools. ">
+        <div class="hero-banner">
+        <h2>Super value Deals!</h2>
+        <h1>Your One-Stop Shop</h1>
+        <p>Discover Savings Galore at Your Devices!</p>
+        <a type="button" href="Shop.html"><span>Shop Now</span></a>  
+        </div>  
+        <div class="custom-shape-divider-bottom-1715259836">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section id="breadcrumbs" class="section-p1" style=" display: none;"></section>
+    
+    <section id="feature" class="transform section-p1 section-m1">
+        <h2>Services</h2>
+        <p>Elevate Your Experience with Our Exceptional Services!</p>
+        <div class="feature-container">
+            <div class="fe-box">
+                <img src="../AgriPic/default/feature_1.svg" title="High Quality" alt="HighQuality">
+                <h6>High Quality</h6>
+            </div>
+            <div class="fe-box">
+                <img src="../AgriPic/default/feature_2.svg" title="Save Money" alt="SaveMoney">
+                <h6>Save Money</h6>
+            </div>
+            <div class="fe-box">
+                <img src="../AgriPic/default/feature_3.svg" title="Fast Delivery" alt="FastDelivery">
+                <h6>Fast Delivery</h6>
+            </div>
+            <div class="fe-box">
+                <img src="../AgriPic/default/feature_4.svg" title="Happy Customers" alt="HappyCustomers">
+                <h6>Happy Customers</h6>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="loading-screen">
+            <div class="loader"></div>
+            <p>Loading...</p>
+    </div>
+
+    <section id="product" class="section-p1 section-m1" style="display: none;">
+        <h2>Featured Products</h2>
+        <p>High Quality Collection of Farm Tools and Equipment</p>
+        <div id="populateHome" class="pro-container">
+            <div class="pro">
+            </div>
+            <!-- Products will be dynamically added here -->
+        </div>
+    </section>
+
+    <!--<section id="banner" class="section-m1">
+        <h4>Delivery Services</h4>
+        <h2>Save Up More to <span>80% Off</span> - Farm Tools and Equipment</h2>
+        <a class="normal" type="button" href="Shop.html"><span>Explore More</span></a>
+
+    </section>-->
+
+    <section id="scroll-floaters">
+        <div class="scroll-buttons">
+            <button id="scrollUpBtn" class="scroll-btn">▲</button>
+            <button id="scrollDownBtn" class="scroll-btn">▼</button>
+        </div>
+    </section>
+
+    <section id="modal">
+        <div id="successModal" class="modal">
+             <div class="modal-content success">
+                 <i class="fa fa-check-circle"></i>
+                 <p id="successMessage"></p>
+                 <button type="button" class="close">OK</button>
+             </div>
+         </div>
+         <div id="errorModal" class="modal">
+             <div class="modal-content error">
+                 <i class="fa fa-times-circle"></i>
+                 <p id="errorMessage"></p>
+                 <button type="button" class="close">Try Again</button>
+             </div>
+         </div>
+     </section>
+
+     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="protanopia-filter">
+                <feColorMatrix type="matrix" values="0.567 0.433 0 0 0 0.558 0.442 0 0 0 0 0.242 0.758 0 0 0 0 0 1 0" />
+            </filter>
+            <filter id="tritanopia-filter">
+                <feColorMatrix type="matrix" values="1 0 0 0 0 0 0.95 0 0 0 0 0 0.082 0 0 0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <footer class="section-p1" id="footer">
+        <div class="col">
+        <a href="index.html"><img src="../AgriPic/default/LogoAgriGear.png" alt="Home of AgriGear" title="Home of AgriGear"></a>
+        <h4>Contact Us</h4>
+        <p><strong>Address: </strong>Silliman Avenue, Dumaguete City Philippines</p>
+        <p><strong>Phone: </strong>+63 912 2345 342/ +63 955 1850 136</p>
+        <p><strong>Email: </strong>agrigear4@gmail.com</p>
+        <p><strong>Hours: </strong>9:00 a.m. - 5:00 p.m.,Monday to Saturday</p>
+        </div>
+
+        <div class="col">
+            <h4>Know Us More</h4>
+            <a href="About.html" class="nav-link">About Us</a>
+            <a href="Contact.html#form-details" class="nav-link">Contact Us</a>
+            <a href="Faq.html" class="nav-link">Frequently Asked Questions</a>
+            <a href="Terms.html" class="nav-link">Terms & Conditions</a>
+            <a href="Data.html" class="nav-link">Website Data Policy</a>
+        </div>
+        <div class="col">
+            <h4>Follow Us</h4>
+            <a href="https://www.facebook.com/profile.php?id=61559642978119&mibextid=ZbWKwL"><i class="fab fa-facebook"></i>Facebook</a>
+            <a href="https://l.messenger.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fagrigear4%2F&h=AT2NQ9Tor38r-BLXu7WlzaYjwHMGY33Iqok2yTGMMEa3qNAJUvDoZe-zOSNVtblMLiEEMCF5TQ6w4XgzIfdfZqq8r-TPKvKRPMRE-n0FteWpq1oIAVUgcZWPVaLRYYF67xuZOQ"><i class="fab fa-instagram"></i>Instagram</a>
+            <a href="https://l.messenger.com/l.php?u=https%3A%2F%2Fyoutube.com%2F%40agrigear4%3Fsi%3DwiqZBGKd4VD51KR-&h=AT0hc_i5urYeHYWNCeL0ReJGM1G13kcJMxpHfDMlHWkGpuYdTVXcseTRIlp1oBh85TvFjNZSLCXXlVpM2afcpLERD_BtYlPMB0s5f-rWFSRky5IOwubN4Z_A9aTnlglK-It8Tw"><i class="fab fa-youtube"></i>Youtube</a>
+        </div>
+        <div class="col install">
+        </div>
+        <div class="copyright">
+            <p>©2024, AHT-AgriDito - AgriGear: Farm Tools and Equipment</p>
+        </div>
+    </footer>
+
+</body>
+<script type="module" src="/js/firebase/shop.js"></script>
+<script type="module" src="/js/firebase/home.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/setting.js"></script>
+<script src="/js/firebase/cart.js"></script>
+</html>
